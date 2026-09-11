@@ -1,0 +1,35 @@
+name = "ConcaveOTLimit"
+version = "0.1.0"
+defaultTargets = ["ConcaveOTLimit", "Challenge", "Solution"]
+
+[leanOptions]
+autoImplicit = false
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "c5ea00351c28e24afc9f0f84379aa41082b1188f"
+
+[[lean_lib]]
+name = "Definitions"
+
+[[lean_lib]]
+name = "ErgodicTheory"
+
+[[lean_lib]]
+name = "Theorems"
+
+[[lean_lib]]
+name = "Solutions"
+
+[[lean_lib]]
+name = "ConcaveOTLimit"
+roots = ["ConcaveOTLimit"]
+
+[[lean_lib]]
+name = "Challenge"
+roots = ["Challenge"]
+
+[[lean_lib]]
+name = "Solution"
+roots = ["Solution"]

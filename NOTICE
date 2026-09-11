@@ -1,0 +1,27 @@
+Concave Optimal-Transport Limits in Lean
+Project-specific portions: Copyright 2026 Yash Kanoria
+
+This work is licensed under the Apache License, Version 2.0.
+See LICENSE for the full license text.
+
+Third-party descriptive-set-theory component
+--------------------------------------------
+
+The following files are unmodified copies from Marcel Morgenstern's
+`marcmorningstar/lean4-ergodic-theory`:
+
+* ErgodicTheory/MeasureTheory/AnalyticSetLemmas.lean
+* ErgodicTheory/MeasureTheory/NovikovSeparation.lean
+* ErgodicTheory/MeasureTheory/CoanalyticReduction.lean
+* ErgodicTheory/MeasureTheory/KunuguiNovikov.lean
+* ErgodicTheory/MeasureTheory/CompactSectionProjection.lean
+
+Copyright (c) 2026 Marcel Morgenstern. All rights reserved.
+Licensed under the Apache License, Version 2.0.
+
+Immutable source:
+https://github.com/marcmorningstar/lean4-ergodic-theory/commit/9bd9db36d3d099a32554b34eaf85e2e053a2bf31
+
+The upstream commit metadata also credits Claude Fable 5 as an AI co-author.
+No endorsement of this project or its Palomar submission by Marcel
+Morgenstern is claimed.

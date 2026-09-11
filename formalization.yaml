@@ -1,0 +1,193 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "The Generalized Excursion Coupling as the Limit of Concave Optimal Transport"
+  description: >-
+    A Lean 4 formalization of the mutually singular main convergence theorems
+    for increasing strictly concave perturbations of Euclidean distance.
+    The development constructs the generalized excursion-coupling map by
+    literal one-dimensional Juillet couplings on maximal transport rays,
+    proves that it is the common intrinsic secondary minimizer, and proves
+    weak convergence of every exact optimizer family together with convergence
+    in source measure of the optimizer maps. A separate theorem handles power
+    costs under logarithmic moment assumptions.
+  authors:
+    - "Yash Kanoria"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Yash Kanoria"
+
+classification:
+  arxiv:
+    - "math.OC"
+  msc2020:
+    - "49Q22"
+    - "49J45"
+
+sources:
+  - title: "The Generalized Excursion Coupling as the Limit of Concave Optimal Transport"
+    authors:
+      - "Yash Kanoria"
+    type: "paper"
+    location: "Main convergence theorem and power-cost convergence theorem"
+    relationship: "formalizes"
+    note: >-
+      This repository formalizes the manuscript's two mutually singular main
+      convergence results. The manuscript author is also responsible for the
+      formalization. The arXiv identifier will be added after the initial
+      repository commit is available for the manuscript to link to.
+    author_endorsement: "participated"
+  - title: "On a solution to the Monge transport problem on the real line arising from the strictly concave case"
+    authors:
+      - "Nicolas Juillet"
+    type: "paper"
+    location: "SIAM Journal on Mathematical Analysis 52 (2020), 4783-4805"
+    relationship: "background"
+    note: >-
+      Supplies the one-dimensional excursion coupling and the power-cost
+      convergence problem extended by the formalized results.
+  - title: "Existence and Stability Results in the L1 Theory of Optimal Transportation"
+    authors:
+      - "Luigi Ambrosio"
+      - "Aldo Pratelli"
+    type: "paper"
+    location: "Lecture Notes in Mathematics 1813 (2003), 123-160"
+    relationship: "background"
+    note: >-
+      Background for distance-contact geometry, maximal transport rays, and
+      disintegration in the linear-cost problem.
+  - title: "lean4-ergodic-theory: Arsenin-Kunugui compact-section projection"
+    authors:
+      - "Marcel Morgenstern"
+    contributors:
+      - name: "Claude Fable 5"
+        role: "AI co-author named in the upstream commit metadata"
+    id: "https://github.com/marcmorningstar/lean4-ergodic-theory/commit/9bd9db36d3d099a32554b34eaf85e2e053a2bf31"
+    type: "Lean formalization"
+    location: >-
+      ErgodicTheory/MeasureTheory/AnalyticSetLemmas.lean,
+      NovikovSeparation.lean, CoanalyticReduction.lean,
+      KunuguiNovikov.lean, and CompactSectionProjection.lean
+    relationship: "other"
+    note: >-
+      This repository vendors unchanged copies of these five Apache-2.0
+      modules. They supply the Novikov separation, Kunugui-Novikov, and
+      compact-section projection chain used by the project-specific
+      measurable selector. Marcel Morgenstern is not listed as a project
+      author or maintainer, and no endorsement of this submission is claimed.
+    license: "Apache-2.0"
+    author_endorsement: "not-contacted"
+
+related_formalizations:
+  - id: "https://github.com/marcmorningstar/lean4-ergodic-theory/commit/9bd9db36d3d099a32554b34eaf85e2e053a2bf31"
+    relationship: "builds-on"
+    note: >-
+      Five unchanged descriptive-set-theory modules are vendored from this
+      immutable revision and attributed in NOTICE and their source headers.
+
+status:
+  scope: >-
+    Complete formalization of the two mutually singular main convergence
+    theorems, including optimizer existence and uniqueness, graphness,
+    intrinsic secondary uniqueness, literal raywise Juillet identification,
+    weak convergence of plans, and convergence in source measure of maps. The
+    manuscript's separate general-measure corollary, obtained by adding the
+    common diagonal part before applying the mutually singular theorem, is not
+    exported here.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+    - "propext"
+    - "Classical.choice"
+    - "Quot.sound"
+  main_results:
+    - declaration: "ConcaveOTLimit.PaperStatements.concaveCostMainTheorem"
+      file: "Theorems/Thm_ConcaveOTLimit_completePaperMainTheorems.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+    - declaration: "ConcaveOTLimit.PaperStatements.powerCostMainTheorem"
+      file: "Theorems/Thm_ConcaveOTLimit_completePaperMainTheorems.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "agent"
+      models:
+        - "GPT-5 family"
+      framework: "Prove2Me and Codex"
+      tool_setup: >-
+        AI agents developed and checked Lean declarations under human
+        direction, using Lean, Mathlib, local builds, source scans, and
+        dependency-closure audits.
+      cost:
+        wall_time: "not fully recorded"
+        spend_usd: "not tracked"
+        hardware: "cloud development environment"
+      prompting_notes: >-
+        Work was organized around closing the full OT dependency chain and
+        eliminating theorem hypotheses that merely assumed paper-specific
+        transport conclusions.
+  spend_usd: "not tracked"
+  notes: >-
+    The formalization was produced through iterative human-directed AI
+    assistance. Exact historical model versions and aggregate compute usage
+    were not fully recorded. The vendored compact-section component has its
+    separate upstream automation provenance recorded in the corresponding
+    source entry. The final repository was independently rebuilt and audited
+    for proof placeholders and custom axioms.
+
+fidelity:
+  divergences: >-
+    The two mutually singular main results are represented, with the Lean
+    statements strengthening the convergence claim to every exact optimizer
+    family. The separate common-diagonal general-measure corollary from the
+    manuscript is omitted. No OT-specific construction, graphness, selection,
+    or uniqueness assertion is assumed by the compared main theorems.
+
+review:
+  status: "self-assessed"
+  reviewers: []
+  notes: >-
+    The theorem signatures, source dependency graph, placeholder scan, and
+    axiom closures were checked mechanically. The five vendored modules were
+    matched byte-for-byte to their immutable upstream revision. Independent
+    external mathematical peer review of the Lean development is not recorded
+    here.
+
+alignment:
+  namespace: "ConcaveOTLimit.PaperStatements"
+  statements:
+    - source: "Convergence of concave-cost optimizers to the generalized EC map"
+      lean: "ConcaveOTLimit.PaperStatements.concaveCostMainTheorem"
+      module: "Theorems.Thm_ConcaveOTLimit_completePaperMainTheorems"
+      status: "proved"
+      note: >-
+        Mutually singular finite measures with equal positive mass, absolutely
+        continuous source, finite first moments, and an admissible concave
+        perturbation family.
+    - source: "Convergence of power-cost optimizers to the generalized EC map"
+      lean: "ConcaveOTLimit.PaperStatements.powerCostMainTheorem"
+      module: "Theorems.Thm_ConcaveOTLimit_completePaperMainTheorems"
+      status: "proved"
+      note: >-
+        Power costs with finite logarithmic moments; includes weak plan
+        convergence and convergence in source measure of every optimizer map.
+
+acknowledgements: >-
+  Built with Lean and Mathlib. The Palomar Challenge/Solution boundary uses
+  leanprover/comparator and its independent NanoDa replay. The Novikov
+  compact-section projection chain is reused under Apache-2.0 from Marcel
+  Morgenstern's lean4-ergodic-theory at commit
+  9bd9db36d3d099a32554b34eaf85e2e053a2bf31.
